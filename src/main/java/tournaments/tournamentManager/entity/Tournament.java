@@ -3,6 +3,8 @@ package tournaments.tournamentManager.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Setter
@@ -13,5 +15,7 @@ public class Tournament {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    String name;
+    private String name;
+    private LocalDate startDate;
+    private LocalDate endDate;
 }
