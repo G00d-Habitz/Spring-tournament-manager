@@ -21,6 +21,7 @@ public class Player {
     private Long id;
     private String firstName;
     private String lastName;
+    private int rating;
     private int score;
     private LocalDate birthday;
 

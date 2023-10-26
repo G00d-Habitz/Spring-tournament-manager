@@ -21,4 +21,6 @@ public class Tournament {
     private LocalDate endDate;
     @ManyToMany
     private List<Player> players;
+    @OneToMany
+    private List<Round> rounds;
 }
