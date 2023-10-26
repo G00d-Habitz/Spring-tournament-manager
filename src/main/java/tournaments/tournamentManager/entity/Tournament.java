@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,4 +19,6 @@ public class Tournament {
     private String name;
     private LocalDate startDate;
     private LocalDate endDate;
+    @ManyToMany
+    private List<Player> players;
 }

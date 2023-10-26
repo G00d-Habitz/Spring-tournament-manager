@@ -6,23 +6,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "players")
-public class Player {
+@Table(name = "rounds")
+public class Round {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstName;
-    private String lastName;
-    private int score;
-    private LocalDate birthday;
-
-
+    private int roundNumber;
+    @OneToMany
+    private List<Match> roundMatches;
 }
