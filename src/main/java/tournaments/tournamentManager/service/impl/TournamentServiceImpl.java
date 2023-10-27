@@ -5,6 +5,8 @@ import tournaments.tournamentManager.entity.Tournament;
 import tournaments.tournamentManager.repository.TournamentRepository;
 import tournaments.tournamentManager.service.TournamentService;
 
+import java.util.List;
+
 @Service
 public class TournamentServiceImpl implements TournamentService {
     private TournamentRepository tournamentRepository;
@@ -16,6 +18,11 @@ public class TournamentServiceImpl implements TournamentService {
     @Override
     public Tournament findTournamentById(Long id) {
         return tournamentRepository.findById(id).get();
+    }
+
+    @Override
+    public List<Tournament> findAllTournaments() {
+        return tournamentRepository.findAll();
     }
 
     @Override

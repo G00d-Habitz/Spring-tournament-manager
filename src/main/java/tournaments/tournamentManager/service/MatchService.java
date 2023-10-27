@@ -1,7 +1,6 @@
 package tournaments.tournamentManager.service;
 
 import tournaments.tournamentManager.entity.Match;
-import tournaments.tournamentManager.entity.Player;
 
 public interface MatchService {
     public Match findMatchById(Long id);
