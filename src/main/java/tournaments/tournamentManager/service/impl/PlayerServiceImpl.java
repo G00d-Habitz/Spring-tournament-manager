@@ -1,6 +1,7 @@
 package tournaments.tournamentManager.service.impl;
 
 import org.springframework.stereotype.Service;
+import tournaments.tournamentManager.entity.Player;
 import tournaments.tournamentManager.repository.PlayerRepository;
 import tournaments.tournamentManager.service.PlayerService;
 
@@ -10,5 +11,25 @@ public class PlayerServiceImpl implements PlayerService {
 
     public PlayerServiceImpl(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
+    }
+
+    @Override
+    public Player findPlayerById(Long id) {
+        return playerRepository.findById(id).get();
+    }
+
+    @Override
+    public void deletePlayer(Long id) {
+        playerRepository.deleteById(id);
+    }
+
+    @Override
+    public void updatePlayer(Player player) {
+        playerRepository.save(player);
+    }
+
+    @Override
+    public void createPlayer(Player player) {
+        playerRepository.save(player);
     }
 }
