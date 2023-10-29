@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,9 +22,11 @@ public class Player {
     private Long id;
     private String firstName;
     private String lastName;
-    private int rating;
-    private int score;
     private LocalDate birthday;
+    private int rating;
+    private double score;
+    private double buchholz;
+    private double buchholzCut1;
 
 
 }
