@@ -2,6 +2,7 @@ package tournaments.tournamentManager.service.impl;
 
 import org.springframework.stereotype.Service;
 import tournaments.tournamentManager.entity.Match;
+import tournaments.tournamentManager.entity.Player;
 import tournaments.tournamentManager.repository.MatchRepository;
 import tournaments.tournamentManager.service.MatchService;
 
@@ -29,7 +30,16 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
-    public void createMatch(Match match) {
+    public void saveMatch(Match match) {
         matchRepository.save(match);
+    }
+
+    @Override
+    public Match createMatch(Player player1, Player player2) {
+        Match match = new Match();
+        match.setPlayerOne(player1);
+        match.setPlayerTwo(player2);
+        match = matchRepository.save(match);
+        return match;
     }
 }

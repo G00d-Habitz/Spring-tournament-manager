@@ -19,7 +19,7 @@ public class Match {
     @ManyToOne
     private Player playerOne;
     @ManyToOne
-    private Player playerBlack;
+    private Player playerTwo;
     private byte result;
 
 }
