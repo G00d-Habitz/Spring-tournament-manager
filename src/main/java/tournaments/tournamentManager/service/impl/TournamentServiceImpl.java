@@ -42,21 +42,4 @@ public class TournamentServiceImpl implements TournamentService {
         tournamentRepository.save(tournament);
     }
 
-    @Override
-    public List<Player> sortByRating(Long id) {
-        Tournament tournament = tournamentRepository.findById(id).get();
-        List<Player> players = tournament.getPlayers();
-        players.sort(Comparator.comparing(Player::getRating).reversed());
-        return players;
-    }
-
-    @Override
-    public List<Player> sortBeforeRound(Long id) {
-        Tournament tournament = tournamentRepository.findById(id).get();
-        List<Player> players = tournament.getPlayers();
-        players.sort(Comparator.comparing(Player::getScore).reversed()
-                .thenComparing(Player::getBuchholzCut1).reversed()
-                .thenComparing(Player::getBuchholz).reversed());
-        return players;
-    }
 }

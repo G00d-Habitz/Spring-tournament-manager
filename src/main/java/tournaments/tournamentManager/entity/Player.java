@@ -25,8 +25,8 @@ public class Player {
     private LocalDate birthday;
     private int rating;
     private double score;
-    private double buchholz;
-    private double buchholzCut1;
+    @ManyToMany
+    private List<Player> opponents;
 
 
 }

@@ -11,6 +11,5 @@ public interface TournamentService {
     public void deleteTournament(Long id);
     public void updateTournament(Tournament tournament);
     public void createTournament(Tournament tournament);
-    public List<Player> sortByRating(Long id);
-    public List<Player> sortBeforeRound(Long id);
+
 }
