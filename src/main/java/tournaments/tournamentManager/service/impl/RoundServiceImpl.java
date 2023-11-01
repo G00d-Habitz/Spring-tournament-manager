@@ -57,9 +57,20 @@ public class RoundServiceImpl implements RoundService {
 
             players.sort(Comparator.comparing(Player::getScore).reversed());
 
-            for (int i = 0; i < size/2; i+=2) {
-                Match match = matchService.createMatch(players.get(i), players.get(i+1));
-                round.getRoundMatches().add(match);
+            List<Player> copyList = new ArrayList<>(players);
+            while (copyList.size() > 1) {
+                Player player1 = copyList.get(0);
+                for (int i = 1; i < copyList.size(); i++) {
+                    if (!player1.getOpponents().contains(copyList.get(i))) {
+                        Player player2 = copyList.get(i);
+                        Match match = matchService.createMatch(player1, player2);
+                        round.getRoundMatches().add(match);
+                        copyList.remove(0);
+                        copyList.remove(i);
+                        break;
+                    }
+                }
+
             }
         }
 
