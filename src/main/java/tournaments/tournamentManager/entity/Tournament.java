@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,7 @@ public class Tournament {
     private LocalDate startDate;
     private LocalDate endDate;
     @ManyToMany
-    private List<Player> players;
+    private List<Player> players = new ArrayList<>();
     @OneToMany
-    private List<Round> rounds;
+    private List<Round> rounds = new ArrayList<>();
 }

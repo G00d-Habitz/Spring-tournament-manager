@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,5 +21,5 @@ public class Round {
     private Long id;
     private int roundNumber;
     @OneToMany
-    private List<Match> roundMatches;
+    private List<Match> roundMatches = new ArrayList<>();
 }

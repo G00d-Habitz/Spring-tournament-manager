@@ -17,8 +17,9 @@ public class RoundServiceImpl implements RoundService {
     private RoundRepository roundRepository;
     private MatchService matchService;
 
-    public RoundServiceImpl(RoundRepository roundRepository) {
+    public RoundServiceImpl(RoundRepository roundRepository, MatchService matchService) {
         this.roundRepository = roundRepository;
+        this.matchService = matchService;
     }
 
     @Override
@@ -78,6 +79,8 @@ public class RoundServiceImpl implements RoundService {
             Match match = matchService.createMatch(players.get(size-1), null);
             round.getRoundMatches().add(match);
         }
+
+        round = roundRepository.save(round);
 
         return round;
     }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class Player {
     private int rating;
     private double score;
     @ManyToMany
-    private List<Player> opponents;
+    private List<Player> opponents = new ArrayList<>();
 
 
 }
