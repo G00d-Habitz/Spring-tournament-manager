@@ -11,5 +11,6 @@ public interface TournamentService {
     public void deleteTournament(Long id);
     public void updateTournament(Tournament tournament);
     public void createTournament(Tournament tournament);
+    public void addPlayer(Tournament tournament, Player player);
 
 }

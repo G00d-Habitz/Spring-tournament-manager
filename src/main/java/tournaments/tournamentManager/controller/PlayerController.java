@@ -3,7 +3,9 @@ package tournaments.tournamentManager.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import tournaments.tournamentManager.entity.Player;
 import tournaments.tournamentManager.service.PlayerService;
 
@@ -37,6 +39,12 @@ public class PlayerController {
         Player player = new Player();
         model.addAttribute("player", player);
         return "addPlayer";
+    }
+
+    @PostMapping("/players/add")
+    public String savePlayer(@ModelAttribute Player player) {
+        playerService.createPlayer(player);
+        return "redirect:/players";
     }
 
 }

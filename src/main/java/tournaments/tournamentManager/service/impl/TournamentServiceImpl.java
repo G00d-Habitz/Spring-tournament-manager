@@ -42,4 +42,10 @@ public class TournamentServiceImpl implements TournamentService {
         tournamentRepository.save(tournament);
     }
 
+    @Override
+    public void addPlayer(Tournament tournament, Player player) {
+        tournament.getPlayers().add(player);
+        tournamentRepository.save(tournament);
+    }
+
 }

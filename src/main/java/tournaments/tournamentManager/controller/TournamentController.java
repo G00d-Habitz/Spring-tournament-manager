@@ -3,7 +3,9 @@ package tournaments.tournamentManager.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import tournaments.tournamentManager.entity.Player;
 import tournaments.tournamentManager.entity.Round;
 import tournaments.tournamentManager.entity.Tournament;
@@ -45,6 +47,23 @@ public class TournamentController {
         Tournament tournament = new Tournament();
         model.addAttribute("tournament", tournament);
         return "addTournament";
+    }
+
+    @GetMapping("/tournaments/add-players")
+    public String addToPlayerList(Model model, @ModelAttribute Tournament tournament) {
+        List<Player> players = playerService.findAllPlayers();
+        Player player = new Player();
+        model.addAttribute("players", players);
+        model.addAttribute("player", player);
+        model.addAttribute("tournament", tournament);
+        return "addToPlayerList";
+
+    }
+
+    @PostMapping("/tournaments/add")
+    public String saveTournament(@ModelAttribute Tournament tournament) {
+        tournamentService.createTournament(tournament);
+        return "redirect:/tournaments";
     }
 
 
